@@ -4,48 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Weather App</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <div class="container">
-
-        <h1>🌦️ Weather App</h1>
+        <div class="top-bar">
+            <h1>🌦️ Weather App</h1>
+            <div class="toolbar-buttons">
+                <button id="unitToggle" class="unit-toggle" aria-label="Toggle temperature unit">°F</button>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+            </div>
+        </div>
 
         <div class="search-box">
-
-            <input
-                type="text"
-                id="cityInput"
-                placeholder="Enter city name"
-            >
-
+            <input type="text" id="cityInput" placeholder="Enter city name">
             <button id="searchBtn">Search</button>
-
         </div>
 
-        <div id="weather">
+        <button id="locationBtn" class="location-btn">📍 Use My Location</button>
 
-            <h2 id="cityName">City Name</h2>
+        <div id="errorMessage" class="error-message"></div>
 
-            <p id="temperature">Temperature: -- °C</p>
+        <div class="weather-card">
+            <div class="city-row">
+                <h2 id="cityName">--</h2>
+                <span id="currentDate">--</span>
+            </div>
 
-            <p id="humidity">Humidity: -- %</p>
+            <div class="main-weather">
+                <div id="weatherIcon" class="weather-icon">--</div>
+                <div>
+                    <div id="temperature" class="temperature">--°C</div>
+                    <div id="condition" class="condition">Enter city name</div>
+                </div>
+            </div>
 
-            <p id="wind">Wind Speed: -- km/h</p>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="label">💧 Humidity</span>
+                    <strong id="humidity">--%</strong>
+                </div>
 
-            <p id="condition">Condition: --</p>
+                <div class="stat-box">
+                    <span class="label">💨 Wind</span>
+                    <strong id="wind">-- km/h</strong>
+                </div>
 
+                <div class="stat-box">
+                    <span class="label">🌡️ Feels like</span>
+                    <strong id="feelsLike">--°C</strong>
+                </div>
+            </div>
         </div>
 
+        <div class="recommendation-box">
+            <h3>Smart Recommendation</h3>
+            <div id="smartRecommendation" class="recommendation-text">Search a city to get advice.</div>
+        </div>
+
+        <div class="farmer-box">
+            <div class="farmer-header">
+                <h3>Farmer Mode</h3>
+                <span id="farmerStatus" class="farmer-status status-good">Good</span>
+            </div>
+            <div class="farmer-grid">
+                <div class="farmer-card">
+                    <span class="farmer-label">🌧️ Rain chance</span>
+                    <strong id="rainChance">--%</strong>
+                </div>
+                <div class="farmer-card">
+                    <span class="farmer-label">🌡️ Temp</span>
+                    <strong id="farmerTemp">--°C</strong>
+                </div>
+                <div class="farmer-card">
+                    <span class="farmer-label">💨 Wind</span>
+                    <strong id="farmerWind">-- km/h</strong>
+                </div>
+                <div class="farmer-card">
+                    <span class="farmer-label">💧 Humidity</span>
+                    <strong id="farmerHumidity">--%</strong>
+                </div>
+            </div>
+            <div id="farmerAction" class="farmer-action">Irrigation planning ready</div>
+            <div id="farmerAdvice" class="farmer-advice">Select a location to get farming guidance.</div>
+        </div>
+
+        <div class="forecast-box">
+            <h3>Hourly Forecast</h3>
+            <div id="hourlyForecast" class="hourly-row"></div>
+        </div>
+
+        <div class="forecast-box">
+            <h3>7 Day Forecast</h3>
+            <div id="forecast" class="forecast-grid"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 
 </html>
